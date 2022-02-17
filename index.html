@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Practice</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="practice-form">
+        <h1>Registration Form Practice</h1>
+
+        <form class="form">
+            <label class = "form-text" for = "email">
+                Email: 
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email"
+                    required
+                >
+            </label>
+                
+            <label class = "form-text" for = "country">
+                Country: 
+                <input 
+                    type="text" 
+                    id="country" 
+                    name="country"
+                    required
+                >
+            </label> 
+
+            <label class = "form-text" for = "zip">
+                Zip Code: 
+                <input 
+                    type="text" 
+                    id="zip" 
+                    name="zip"
+                    required
+                >
+            </label>
+
+            <label class = "form-text" for = "password">
+                Password: 
+                <input 
+                    type="password" 
+                    id="password" 
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                    name="password"
+                    required
+                    oninvalid = "this.setCustomValidity('Password must be 8 characters, contain at least 1 number, 1 uppercase letter, and 1 lowercase letter.')"
+                >
+            </label>
+
+            <div class="submit-button">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
