@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0%;
+}
+
+.practice-form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+label {
+    padding-top: 2.5rem;
+}
+
+.form-text {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+}
+  
+input {
+    height: 20px;
+    margin-left: 2rem;
+}
+
+.submit-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.submit-button input {
+    border: none;
+    background: lightgrey;
+    margin-top: 2.5rem;
+    border-radius: 15%;
+    width: 3.5rem;
+    height: 2rem;
+    transition: 500ms ease-in-out;
+}
+
+.submit-button input:hover {
+    cursor: pointer;
+    background-color: darkgray;
+}
