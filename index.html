@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Practice</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="practice-form">
+    <div class="practice-form" method = "post" action = "#">
         <h1>Registration Form Practice</h1>
 
-        <form class="form">
+        <form class="form" name="frm">
             <label class = "form-text" for = "email">
                 Email: 
                 <input 
@@ -20,6 +20,7 @@
                     id="email" 
                     name="email"
                     required
+                    onblur="emailVerify()"
                 >
             </label>
                 
@@ -29,6 +30,7 @@
                     type="text" 
                     id="country" 
                     name="country"
+                    onblur="countryVerify()"
                     required
                 >
             </label> 
@@ -39,6 +41,7 @@
                     type="text" 
                     id="zip" 
                     name="zip"
+                    onblur="zipVerify()"
                     required
                 >
             </label>
@@ -48,10 +51,11 @@
                 <input 
                     type="password" 
                     id="password" 
-                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                    pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{8,})" 
                     name="password"
                     required
                     oninvalid = "this.setCustomValidity('Password must be 8 characters, contain at least 1 number, 1 uppercase letter, and 1 lowercase letter.')"
+                    onblur="passwordVerify()"
                 >
             </label>
 
@@ -59,6 +63,9 @@
                 <input type="submit" value="Submit">
             </div>
         </form>
+
+        <span id = "messageBox"></span>
+
     </div>
 </body>
 </html>
