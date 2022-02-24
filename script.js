@@ -28,7 +28,8 @@ function passwordVerify()
 
     var regexParam = new RegExp("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}")
 
-    if (password.match(/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{8,})$/))
+    if (password.match(/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{8,})$/)
+    || password.length == 0)
     {
         pw.style.boxShadow = "none";
     }
@@ -49,7 +50,7 @@ function emailVerify()
 
     if (emailVal.match(
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      ))
+      ) || emailVal.length == 0)
     {
         email.style.boxShadow = "none";
     }
@@ -68,7 +69,7 @@ function countryVerify()
 {
     const countryVal = document.frm.country.value;
 
-    if (countryVal.match(/^[A-Za-z]+$/))
+    if (countryVal.match(/^[A-Za-z]+$/) || countryVal.length == 0)
     {
         country.style.boxShadow = "none";
     }
@@ -87,18 +88,18 @@ function zipVerify()
 {
     const zipVal = document.frm.zip.value;
 
-    if (zipVal.length < 5)
+    if (zipVal.match(/^\d+$/) || zipVal.length == 0)
+    {
+        zip.style.boxShadow = "none";
+    }
+
+    else if (zipVal.length < 5)
     {
         zip.style.border = "1px solid red";
 
         zip.style.boxShadow = "0 0 10px 5px rgba(200,0,0,.8)";
 
         messageBox.textContent = "Zip-Code must be 5 characters."
-    }
-
-    else if (zipVal.match(/^\d+$/))
-    {
-        zip.style.boxShadow = "none";
     }
 
     else
